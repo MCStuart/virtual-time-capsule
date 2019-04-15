@@ -1,25 +1,29 @@
-// Firebase App (the core Firebase SDK) is always required and must be listed first
-import * as firebase from "firebase/app";
-
-// Add the Firebase products that you want to use
-import "firebase/auth";
-import "firebase/database";
-import "firebase/firestore";
-
 // TODO: Replace the following with your app's Firebase project configuration
-const firebaseConfig = {
- // ...
+var firebaseConfig = {
+  apiKey: "AIzaSyDNwXooTh0URLihSpXCaJKG52riq3PYwqo",
+  authDomain: "time-capsule-12424.firebaseapp.com",
+  databaseURL: "https://time-capsule-12424.firebaseio.com",
+  projectId: "time-capsule-12424",
+  storageBucket: "time-capsule-12424.appspot.com",
+  messagingSenderId: "914523788031"
 };
 
-// Initialize Firebase with a "default" Firebase project
 var timeCapsule = firebase.initializeApp(firebaseConfig);
 
-console.log(defaultProject.name);  // "[DEFAULT]"
+console.log(timeCapsule.name);
+var db = firebase.firestore(timeCapsule);
 
-// Option 1: Access Firebase services via the defaultProject variable
-var defaultStorage = defaultProject.storage();
-var defaultDatabase = defaultProject.database();
+db.collection("cities").doc("LA").set({
+    name: "Los Angeles",
+    state: "CA",
+    country: "USA"
+})
 
-// Option 2: Access Firebase services using shorthand notation
-defaultStorage = firebase.storage();
-defaultDatabase = firebase.database();
+var docRef = db.collection("cities").doc("LA");
+
+
+docRef.get().then(function(doc) {
+    if (doc.exists) {
+        console.log("Document data:", doc.data());
+    }
+});
