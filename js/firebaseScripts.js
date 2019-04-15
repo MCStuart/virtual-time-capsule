@@ -20,7 +20,9 @@ function Capsule(name, timeCreated, duration) {
   this.duration = duration;
 }
 
-var firstCapsule = new Capsule("Capsule#2318", 0, 0);
+var d = new Date();
+var n = d.getTime();
+var firstCapsule = new Capsule("Capsule#2318", d.getTime(), 0);
 
 db.collection("capsules").doc(firstCapsule.uid).set({
   name: firstCapsule.name,
@@ -87,9 +89,5 @@ function handleFileSelect(evt) {
 
 $(function() {
   addEventHandlers()
-
-
-
-
 
 });
