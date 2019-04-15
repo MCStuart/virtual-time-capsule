@@ -12,20 +12,20 @@ var timeCapsule = firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore(timeCapsule);
 
 var storage = firebase.storage();
-
-db.collection("cities").doc("LA").set({
-    name: "Los Angeles",
-    state: "CA",
-    country: "USA"
-})
-
-var docRef = db.collection("cities").doc("LA");
-
-docRef.get().then(function(doc) {
-    if (doc.exists) {
-        console.log("Document data:", doc.data());
-    }
-});
+//
+// db.collection("cities").doc("LA").set({
+//     name: "Los Angeles",
+//     state: "CA",
+//     country: "USA"
+// })
+//
+// var docRef = db.collection("cities").doc("LA");
+//
+// docRef.get().then(function(doc) {
+//     if (doc.exists) {
+//         console.log("Document data:", doc.data());
+//     }
+// });
 
 function Capsule(name, timeCreated, duration) {
   this.name = name;
@@ -35,6 +35,7 @@ function Capsule(name, timeCreated, duration) {
 }
 
 var firstCapsule = new Capsule("First Capsule", 0, 0);
+
 db.collection("capsules").doc(firstCapsule.name).set({
   name: firstCapsule.name,
   timeCreated: firstCapsule.timeCreated,
