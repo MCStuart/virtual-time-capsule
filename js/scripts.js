@@ -36,8 +36,6 @@ var metadata = {
   contentType: 'image/jpeg'
 };
 
-
-
 $(function() {
 
   function handleFileSelect(evt) {
