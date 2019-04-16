@@ -6,25 +6,23 @@
 }
 
 h2 {
-  font-family: 'Unica One', cursive;
+  font-family: sans-serif;
   top: 0px;
   margin-left: auto;
   margin-right: auto;
   color: white;
   font-size: 3vmax;
 }
+
 img {
   width: 60vh;
   margin-left: auto;
   margin-right: auto;
-
 }
 
 body {
   background-color: black;
 }
-
-
 
 /* Container holding the image and the text */
 .container {
