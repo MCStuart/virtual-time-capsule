@@ -1,4 +1,4 @@
-var countdownDate = new Date("April 16, 2019 09:55:00").getTime();
+var countdownDate = new Date("April 16, 2019 13:00:00").getTime();
 
 var x = setInterval(function() {
   var now = new Date().getTime();
@@ -7,7 +7,7 @@ var x = setInterval(function() {
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  document.getElementById("current-time").innerHTML = days + "d " + hours + ":" + minutes + ":" + seconds;
+  document.getElementById("current-time").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
   if (distance < 0) {
     clearInterval(x);
     document.getElementById("current-time").innerHTML = "time capsule OPEN";
