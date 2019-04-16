@@ -19,7 +19,7 @@ body {
   color: white;
 
   /* background styles */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../media/memory.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/memory.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
