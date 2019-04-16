@@ -1,3 +1,7 @@
+/* * {
+  border: 1px solid red;
+} */
+
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 10fr 10fr 1fr;
@@ -21,7 +25,6 @@
   font-style: italic;
   text-align: center;
 }
-
 
 .userInput {
   grid-row: 2 / 4;
@@ -58,4 +61,20 @@ img {
 .footer {
   grid-row: 4 / 5;
   grid-column: 1 / 4;
+}
+
+.timeInput {
+  align-items: center;
+}
+
+#datetimepicker13 .col-md-6 {
+  width: 275px;
+  max-width: 300px;
+}
+
+#datetimepicker13 .row {
+  justify-self: stretch;
+  align-self: center;
+  margin: 0;
+  justify-content: center;
 }
