@@ -65,9 +65,7 @@ function uploadFiles() {
   var name = $('#capsule-name').val();
   var date = $('#datetimepicker13').data('date');
 
-  //createUser(email, password);
-  loginUser(email, password);
-
+  var uid = firebase.auth().currentUser.uid;
   var capsule = new Capsule(name, date);
 
   for (var i = 0, f; f = fileList[i]; i++) {
@@ -79,9 +77,6 @@ function uploadFiles() {
     timeBuried: timeBuried,
     unbury: capsule.unbury
   });
-  console.log("done!");
-  // db.collection("users").doc(email).set({uid: firstCapsule.uid})
-
 }
 
 
@@ -89,7 +84,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     $("#loginId").text(user.email)
     $('.loginScreen').hide();
-    // $('.wrapper').css("display", "grid");
+    $('.wrapper').css("display", "grid");
   } else {
     uid = 0;
   }
