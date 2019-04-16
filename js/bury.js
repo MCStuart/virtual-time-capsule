@@ -9,38 +9,22 @@ var firebaseConfig = {
 
 var timeCapsule = firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore(timeCapsule);
-var storage = firebase.storage();
-
-
-function Capsule(name, duration) {
-  this.name = name;
-  this.uid = uuidv4();
-  this.media = ["document1", "document2", "document3"];
-  this.duration = duration;
-}
-
-var d = new Date();
-var n = d.getTime();
-var firstCapsule = new Capsule("Capsule#2318", 0);
-
+// var storage = firebase.storage();
 var storageRef = firebase.storage().ref();
 
-var metadata = {
-  contentType: 'image/jpeg'
-};
-
-
+var userId = 0;
+var userEmail = ""
 var fileList = [];
 
+var d = new Date();
 
-function uuidv4() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-  });
+function Capsule(name, unbury) {
+  this.name = name;
+  this.unbury = unbury;
 }
 
 
+//Update Ui file list
 function updateFileList() {
   var output = [];
   for (var i = 0, f; f = fileList[i]; i++) {
@@ -53,19 +37,63 @@ function updateFileList() {
 }
 
 
+function createUser(email, password) {
+  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorCode);
+    console.log(errorMessage);
+  });
+}
+
+function loginUser(email, password) {
+  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorCode);
+    console.log(errorMessage);
+  });
+}
+
+function logoutUser() {
+  firebase.auth().signOut()
+  location.reload();
+}
+
+
 function uploadFiles() {
+  var name = $('#capsule-name').val();
+  var date = $('#datetimepicker13').data('date');
+
+  //createUser(email, password);
+  loginUser(email, password);
+
+  var capsule = new Capsule(name, date);
+
   for (var i = 0, f; f = fileList[i]; i++) {
-    storageRef.child(firstCapsule.uid + "/" + f.name).put(f);
+    storageRef.child(uid + "/" + f.name).put(f);
   }
   var timeBuried = d.getTime();
-  db.collection("capsules").doc(firstCapsule.uid).set({
-    name: firstCapsule.name,
-    timeCreated: timeBuried,
-    duration: firstCapsule.duration,
-    media: firstCapsule.media
+  db.collection("capsules").doc(uid).set({
+    name: capsule.name,
+    timeBuried: timeBuried,
+    unbury: capsule.unbury
   });
+  console.log("done!");
+  // db.collection("users").doc(email).set({uid: firstCapsule.uid})
 
 }
+
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    $("#loginId").text(user.email)
+    $('.loginScreen').hide();
+    // $('.wrapper').css("display", "grid");
+  } else {
+    uid = 0;
+  }
+});
 
 
 
@@ -73,8 +101,23 @@ function addEventHandlers() {
   document.getElementById('files').addEventListener('change', handleFileSelect, false);
   $('#upload').on('click', function () {
     uploadFiles();
-
   });
+
+  $('#login').on('click', function () {
+    var email = $('#user-email').val();
+    var password = $('#user-password').val();
+
+    if (!email || !password) {
+      return
+    }
+    loginUser(email, password)
+  });
+
+  $('#logout').on('click', function () {
+    logoutUser()
+  });
+
+
 }
 
 function handleFileSelect(evt) {
@@ -85,7 +128,12 @@ function handleFileSelect(evt) {
   //mountainsRef.put(evt.target.files[0]);
   updateFileList();
 }
-
+function checkForLogin() {
+    if (firebase.auth().currentUser)
+    {
+      return;
+    } else return;
+}
 
 $(function() {
   addEventHandlers()

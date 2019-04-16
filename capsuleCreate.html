@@ -17,22 +17,52 @@
     <title>Time Capsule</title>
   </head>
   <body>
+    <main class="loginScreen">
+      <h1>Please Login</h1>
+      <div class="dataInput">
+        <div class="form-group">
+          <label for="user-email">Email address</label>
+          <input type="email" class="form-control" id="user-email" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+          <label for="user-password">Password</label>
+          <input type="password" class="form-control" id="user-password" placeholder="Password">
+        </div>
+      </div>
+      <button id="login" class="btn btn-success" type="button" name="button">Login</button>
+    </main>
+
+
+
+
+
     <main class="wrapper">
       <div class="header">
-        <p>Time Capsule </p>
+        <p id="h1">Time Capsule For</p>
+        <small id="loginId" class="form-text text-muted"></small>
+        <small id="logout">Logout</small>
       </div>
+
       <div class="subheader">
-        <p>Taglines are for bitches</p>
+        <p>Change the future, by honoring the past</p>
       </div>
       <form class="form-group userInput">
-        <label for="capsule-name">Name your time capsule:</label>
-        <br>
-        <input type="text" id="capsule-name" placeholder="Enter capsule name" name="" value="" required>
-        <br>
-        <label for="user-email">Email address:</label>
-        <br>
-        <input type="email" id="user-email" placeholder="Enter email" name="" value="" required>
-        <br>
+        <div class="dataInput">
+
+        <div class="form-group">
+          <label for="capsule-name">Name your time capsule</label>
+          <input type="text" class="form-control" id="capsule-name" aria-describedby="emailHelp" placeholder="Capsule Name">
+        </div>
+        <!-- <div class="form-group">
+          <label for="user-email">Email address</label>
+          <input type="email" class="form-control" id="user-email" aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">This is needed to recover your time capsule</small>
+        </div>
+        <div class="form-group">
+          <label for="user-password">Password</label>
+          <input type="password" class="form-control" id="user-password" placeholder="Password">
+        </div> -->
+      </div>
         <div style="timeInput overflow:hidden;">
           <div class="form-group">
             <div id="datetimepicker13"></div>
@@ -41,7 +71,13 @@
               $(function () {
                   $('#datetimepicker13').datetimepicker({
                       inline: true,
-                      sideBySide: true
+                      sideBySide: true,
+                      icons: {
+                        time: "fa fa-clock-o",
+                        date: "fa fa-calendar",
+                        up: "fa fa-arrow-up",
+                        down: "fa fa-arrow-down"
+                        }
                   });
               });
           </script>
@@ -58,6 +94,7 @@
         <img src="img/treehole.png" alt="a man digging a hole next to a tree">
       </div>
       <div class="fileList">
+        <p>Files to Send to the Future:</p>
         <output id="list"></output>
       </div>
       <div class="footer">
