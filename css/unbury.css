@@ -6,6 +6,7 @@ body {
 
 h1 {
   color: #26409B;
+  text-align: center;
 }
 
 h2 {
@@ -23,7 +24,6 @@ h2 {
   grid-template-rows: 25% 25% 25% 25%;
   grid-gap: 1em;
 }
-
 
 #capsule-pic {
   grid-column: 1 / 5;
@@ -43,7 +43,6 @@ h2 {
   grid-row: 4 / 4;
   text-align: center;
   align-self: start;
-  width: 100%;
   background-color: #26409B;
 }
 
