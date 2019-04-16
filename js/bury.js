@@ -12,24 +12,16 @@ var db = firebase.firestore(timeCapsule);
 var storage = firebase.storage();
 
 
-function Capsule(name, timeCreated, duration) {
+function Capsule(name, duration) {
   this.name = name;
   this.uid = uuidv4();
   this.media = ["document1", "document2", "document3"];
-  this.timeCreated = timeCreated;
   this.duration = duration;
 }
 
 var d = new Date();
 var n = d.getTime();
-var firstCapsule = new Capsule("Capsule#2318", d.getTime(), 0);
-
-db.collection("capsules").doc(firstCapsule.uid).set({
-  name: firstCapsule.name,
-  timeCreated: firstCapsule.timeCreated,
-  duration: firstCapsule.duration,
-  media: firstCapsule.media
-});
+var firstCapsule = new Capsule("Capsule#2318", 0);
 
 var storageRef = firebase.storage().ref();
 
@@ -65,6 +57,14 @@ function uploadFiles() {
   for (var i = 0, f; f = fileList[i]; i++) {
     storageRef.child(firstCapsule.uid + "/" + f.name).put(f);
   }
+  var timeBuried = d.getTime();
+  db.collection("capsules").doc(firstCapsule.uid).set({
+    name: firstCapsule.name,
+    timeCreated: timeBuried,
+    duration: firstCapsule.duration,
+    media: firstCapsule.media
+  });
+
 }
 
 
@@ -91,43 +91,3 @@ $(function() {
   addEventHandlers()
 
 });
-
-ko.bindingHandlers.dateTimePicker = {
-    init: function (element, valueAccessor, allBindingsAccessor) {
-        //initialize datepicker with some optional options
-        var options = allBindingsAccessor().dateTimePickerOptions || {};
-        $(element).datetimepicker(options);
-
-        //when a user changes the date, update the view model
-        ko.utils.registerEventHandler(element, "dp.change", function (event) {
-            var value = valueAccessor();
-            if (ko.isObservable(value)) {
-                if (event.date != null && !(event.date instanceof Date)) {
-                    value(event.date.toDate());
-                } else {
-                    value(event.date);
-                }
-            }
-        });
-
-        ko.utils.domNodeDisposal.addDisposeCallback(element, function () {
-            var picker = $(element).data("DateTimePicker");
-            if (picker) {
-                picker.destroy();
-            }
-        });
-    },
-    update: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
-
-        var picker = $(element).data("DateTimePicker");
-        //when the view model is updated, update the widget
-        if (picker) {
-            var koDate = ko.utils.unwrapObservable(valueAccessor());
-
-            //in case return from server datetime i am get in this form for example /Date(93989393)/ then fomat this
-            koDate = (typeof (koDate) !== 'object') ? new Date(parseFloat(koDate.replace(/[^0-9]/g, ''))) : koDate;
-
-            picker.date(koDate);
-        }
-    }
-};
