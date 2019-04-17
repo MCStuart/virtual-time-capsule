@@ -12,4 +12,9 @@ Create Capsule Page
 Info Page
 Unbury Page
   Display date using javascript date
-  
+
+
+
+
+auto direct user to bury if one exists
+auto direct user to unbury if
