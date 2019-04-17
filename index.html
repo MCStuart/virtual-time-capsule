@@ -8,9 +8,9 @@
     <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="js/init-firebase.js"></script>
+    <script type="text/javascript" src="js/capsuleControl.js"></script>
     <script type="text/javascript" src="js/indexScripts.js"></script>
-    <title>puppy</title>
+    <title>Virtual Time Capsule</title>
   </head>
   <body>
     <section class="hero">
@@ -31,13 +31,29 @@
               <label for="user-password">Password</label>
               <input type="password" class="form-control" id="user-password" placeholder="Password">
             </div>
+            <button  class="btn-small">Not a User yet? Click here to register!</button>
           </div>
           <button id="login" class="btn btn-success" type="button" name="button">Login</button>
         </main>
+        <main class="registerScreen">
+          <h1>Register</h1>
+          <div class="dataInput">
+            <div class="form-group">
+              <label for="user-email">Email address</label>
+              <input type="email" class="form-control" id="user-email" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="user-password">Password</label>
+              <input type="password" class="form-control" id="user-password" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="user-password">Confirm Password</label>
+              <input type="password" class="form-control" id="user-password-confirm" placeholder="Confirm Password">
+            </div>
+          </div>
+          <button id="registerNewUser" class="btn btn-success" type="button" name="button">Register</button>
+        </main>
       </div>
     </section>
-    <main>
-      <p>Congress haitafanya sheria yoyote kuhusu kuanzishwa kwa dini, au kuzuia mazoezi ya bure; au kufuta uhuru wa hotuba, au wa vyombo vya habari; au haki ya watu kwa amani kusanyika, na kuomba serikali kwa marekebisho ya malalamiko.</p>
-    </main>
   </body>
 </html>
