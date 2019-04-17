@@ -105,7 +105,9 @@ function uploadFiles() {
     capsule.media.push(uid + "/" + f.name);
   }
 
-  var timeBuried = d.getTime();
+  var timeBuried = moment();
+
+
   db.collection("capsules").doc(uid).set({
     name: capsule.name,
     timeBuried: timeBuried,
