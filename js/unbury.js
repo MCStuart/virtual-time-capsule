@@ -13,3 +13,25 @@ var x = setInterval(function() {
     $("#current-time").html("time capsule OPEN");
   }
 }, 1000);
+
+
+function addPics(media) {
+  for (var i = 0; i < media.length; i++) {
+    $("ol.carousel-indicators").append("<li data-target='#carouselIndicators' data-slide-to=" + i + "'></li>")
+    $("div.carousel-inner").append("<div class='carousel-item'> <img src='" + media[i] + "' class='d-block w-100' alt='...'> </div>")
+  }
+};
+
+
+function addEventHandlers() {
+
+  $('#unbury').on('click', function () {
+    getMediaFromUser(addPics);
+  });
+
+}
+
+$(function() {
+  addEventHandlers()
+
+});
