@@ -95,8 +95,8 @@ function logoutUser() {
 
 function uploadFiles() {
   var name = $('#capsule-name').val();
-  var date = $('#datetimepicker13').data('date');
-
+  var date = $('#datetimepicker13').datetimepicker("viewDate").valueOf()
+  //console.log($('#datetimepicker13').datetimepicker("viewDate").valueOf());
   var uid = firebase.auth().currentUser.uid;
   var capsule = new Capsule(name, date);
 
@@ -105,7 +105,7 @@ function uploadFiles() {
     capsule.media.push(uid + "/" + f.name);
   }
 
-  var timeBuried = moment();
+  var timeBuried = new Date().getTime();
 
 
   db.collection("capsules").doc(uid).set({
