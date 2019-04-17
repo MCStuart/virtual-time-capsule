@@ -33,10 +33,6 @@
       <button id="login" class="btn btn-success" type="button" name="button">Login</button>
     </main>
 
-
-
-
-
     <main class="wrapper">
       <div class="header">
         <p id="h1">Time Capsule For</p>
@@ -45,13 +41,13 @@
       </div>
 
       <div class="subheader">
-        <p>Change the future, by honoring the past</p>
+        <p>Change the future by honoring the past</p>
       </div>
       <form class="form-group userInput">
         <div class="dataInput">
 
         <div class="form-group">
-          <label for="capsule-name">Name your time capsule</label>
+          <label for="capsule-name"><h4>Name your time capsule</h4></label>
           <input type="text" class="form-control" id="capsule-name" aria-describedby="emailHelp" placeholder="Capsule Name">
         </div>
         <!-- <div class="form-group">
@@ -66,28 +62,27 @@
       </div>
         <div style="timeInput overflow:hidden;">
           <div class="form-group">
+            <label for="datetimepicker13"><h4>Pick a future date to open your time capsule</h4></label>
             <div id="datetimepicker13"></div>
           </div>
           <script type="text/javascript">
               $(function () {
-                  $('#datetimepicker13').datetimepicker({
-                      inline: true,
-                      sideBySide: true,
-                      icons: {
-                        time: "fa fa-clock-o",
-                        date: "fa fa-calendar",
-                        up: "fa fa-arrow-up",
-                        down: "fa fa-arrow-down"
-                        }
-                  });
+                $('#datetimepicker13').datetimepicker({
+                  inline: true,
+                  sideBySide: true,
+                  icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                  }
+                });
               });
           </script>
         </div>
         <br>
-        <label class="btn btn-info btn-file">
-            Browse <input type="file" id="files" name="files[]" multiple  style="display: none;">
-        </label>
-        <button id="upload" class="btn btn-success" type="button" name="button">Upload</button>
+        <button id="browse" class="btn btn-dark">Browse<input type="file" id="files" name="files[]" multiple  style="display: none;">
+        </button>
         <br>
         <!-- <input type="file" id="files" name="files[]" multiple /> -->
       </form>
@@ -97,6 +92,7 @@
       <div class="fileList">
         <p>Files to Send to the Future:</p>
         <output id="list"></output>
+        <button id="upload" class="btn btn-dark" type="button" name="button">Upload</button>
       </div>
       <div class="footer">
         <h1>Look Ma! No Flexboxes!</h1>

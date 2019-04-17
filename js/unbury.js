@@ -23,7 +23,6 @@ function updateBuryTime() {
   }
 }
 
-
 function getDateFromMS(time) {
   var days = Math.floor(time / (1000 * 60 * 60 * 24));
   var hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -49,9 +48,8 @@ function getUnburyDate() {
     if (doc.exists) {
       countdownDate = doc.data().unbury;
     }
-  })
+  });
 }
-
 
 function addPics(media) {
   $("ol.carousel-indicators").empty();
@@ -67,7 +65,6 @@ function addPics(media) {
   }
 };
 
-
 function addEventHandlers() {
 
   $('#unbury').on('click', function () {
@@ -75,7 +72,6 @@ function addEventHandlers() {
   });
 
 }
-
 
 $(function() {
   addEventHandlers()
