@@ -10,14 +10,30 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="js/init-firebase.js"></script>
     <script type="text/javascript" src="js/indexScripts.js"></script>
-    <title></title>
+    <title>puppy</title>
   </head>
   <body>
     <section class="hero">
       <div class="hero-inner">
-        <h1>Virtual Time Capsule</h1>
-        <h3>Line ya Tage Inakwenda Hapa</h3>
-        <a href="capsuleCreate.html" class="btn">CLICK ME</a>
+        <div class="titleSplash">
+          <h1>Virtual Time Capsule</h1>
+          <h3>Line ya Tage Inakwenda Hapa</h3>
+          <button class="btn">CLICK ME</button>
+        </div>
+        <main class="loginScreen">
+          <h1>Please Login</h1>
+          <div class="dataInput">
+            <div class="form-group">
+              <label for="user-email">Email address</label>
+              <input type="email" class="form-control" id="user-email" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="user-password">Password</label>
+              <input type="password" class="form-control" id="user-password" placeholder="Password">
+            </div>
+          </div>
+          <button id="login" class="btn btn-success" type="button" name="button">Login</button>
+        </main>
       </div>
     </section>
     <main>

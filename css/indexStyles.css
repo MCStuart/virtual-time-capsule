@@ -4,6 +4,10 @@ body {
   font-family: sans-serif;
 }
 
+main.loginScreen {
+  display: none;
+}
+
 .hero {
   /*sizing*/
   width: 100vw;
