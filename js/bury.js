@@ -14,6 +14,7 @@ function addEventHandlers() {
   document.getElementById('files').addEventListener('change', handleFileSelect, false);
   $('#upload').on('click', function() {
     uploadFiles();
+    console.log($('#files'));
   });
 
   $('#login').on('click', function() {
@@ -35,8 +36,10 @@ function addEventHandlers() {
 
 function handleFileSelect(evt) {
   var files = evt.target.files;
+
   for (var i = 0; i < evt.target.files.length; i++) {
     fileList.push(evt.target.files[i])
+    console.log(evt.target.files[i]);
   }
   updateFileList();
 }

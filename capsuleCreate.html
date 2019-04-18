@@ -6,6 +6,7 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="css/capsuleCreateStyles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+  <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
   <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
   <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
@@ -15,6 +16,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
   <!-- <script src="http://wzrd.in/standalone/uuid%2Fv4@latest"></script> -->
   <script type="text/javascript" src="js/capsuleControl.js"></script>
+
   <script type="text/javascript" src="js/bury.js"></script>
   <title>Time Capsule</title>
 </head>
@@ -86,14 +88,13 @@
         </script>
       </div>
       <br>
-      <button id="browse" class="btn btn-dark">Browse
-        <!-- <input type="file" id="files" name="files[]" multiple style="display: none;"> -->
+      <!-- <button id="browse" class="btn btn-dark">Browse
+        <input type="file" id="files" name="files[]" multiple style="display: none;">
         <input type="file" id="files" name="files[]" multiple>
-      </button>
+      </button> -->
 
-      <button class="btn btn-dark">22
-        <input type="file" name="files[]" multiple >
-      </button>
+      <input id="files" type="file" class="filepond" multiple>
+
       <br>
       <!-- <input type="file" id="files" name="files[]" multiple /> -->
     </form>
@@ -109,6 +110,10 @@
       <h1>Look Ma! No Flexboxes!</h1>
     </div>
   </main>
-</body>
+  <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+  <script>
+  FilePond.parse(document.body);
+  </script>
 
+</body>
 </html>
