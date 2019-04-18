@@ -16,16 +16,13 @@ main.registerScreen {
   /*sizing*/
   width: 100vw;
   height: 100vh;
-
   /* flexbox */
   display: flex;
   justify-content: center;
   align-items: center;
-
   /* text styles */
   text-align: center;
   color: white;
-
   /* background styles */
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/memory.png');
   background-size: cover;

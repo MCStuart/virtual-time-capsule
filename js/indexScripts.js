@@ -1,5 +1,7 @@
 // Business Logic
-function passwordConfirm(userPassword, userPasswordConfirm, email){
+var splash = false;
+
+function passwordConfirm(userPassword, userPasswordConfirm, email) {
   console.log(userPassword);
   console.log(userPasswordConfirm);
   console.log(email);
@@ -8,33 +10,76 @@ function passwordConfirm(userPassword, userPasswordConfirm, email){
     loginUser(email, userPassword);
 
   } else {
-    alert ("Passwords don't match");
+    alert("Passwords don't match");
   }
 }
 
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    if (splash) {
+      if (checkforCapsule()) {
+        location.href = "unbury.html";
+      } else {
+        location.href = "capsuleCreate.html";
+      }
+    }
+  } else {
+
+  }
+});
+
+
+function checkforCapsule() {
+  if (firebase.auth().currentUser) {
+    var id = firebase.auth().currentUser.uid;
+    var docRef = db.collection("capsules").doc(id);
+    docRef.get().then(function(doc) {
+      if (doc.exists) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }
+  return false;
+}
+
 // User Interface Logic
+
 $(document).ready(function() {
-  $("button.btn").click(function(){ // Enter Website
-    $("div.titleSplash").hide();
-    $("main.loginScreen").show();
+
+  $("#splashButton").click(function() {
+    splash = true;
+    if (firebase.auth().currentUser) {
+      if (checkforCapsule()) {
+        location.href = "unbury.html";
+      } else {
+        location.href = "capsuleCreate.html";
+      }
+    } else {
+      $("div.titleSplash").hide();
+      $("main.loginScreen").show();
+    }
   });
-  $("button#login").click(function() {
+
+  $("#login").click(function() {
     var email = $("input.user-email").val();
     var password = $("input.user-password").val();
     loginUser(email, password);
 
   })
-  $("button.btn-small").click(function(){ // Displays Site Registration Section
+
+  $("#newUserButton").click(function() { // Displays Site Registration Section
     $("main.loginScreen").hide();
     $("main.registerScreen").show();
   });
-  $("#registerNewUser").click(function(){ // Registers and Logs in new User
+
+  $("#registerNewUser").click(function() { // Registers and Logs in new User
     // $("main.registerScreen").hide();
     $("main.loginScreen").hide();
     var userPassword = $("#user-password").val();
     var userPasswordConfirm = $("#user-password-confirm").val();
     var email = $("#user-email").val();
     passwordConfirm(userPassword, userPasswordConfirm, email);
-
   });
 });
