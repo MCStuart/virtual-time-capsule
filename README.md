@@ -1,5 +1,5 @@
 # Authors
-## **Stuart McKay** **Nathan Aden** **Dominic Montelongo** **Elizabeth Kelley**
+## **Stuart McKay,** **Nathan Aden,** **Dominic Montelongo,** **Elizabeth Kelley**
 
 ### Built With
 * HTML
@@ -42,14 +42,8 @@ This work is the sole ownership of the Authors'. Distribution is permitted under
 ### Behavioral Driven Development Steps:
 | Behavior | Input | Output |
 | ------------- |:-------------:| -----:|
-| Iniate login sequence |"click" relive | Login page populates window|
-| Current user login|enter email and password, "click" 'login' button |Links to user time capsule bury page |
-| New user login|"click" 'click here to register if you are a new user' button | |
-| | | |
-| | | |
-| | | |
-| | | |
-| | | |
-| | | |
-| | | |
-| | | |
+| Store a file for user | upload (file).(extension) | website stores file |
+| User can ask for the file back | Request file from server | server sends file back |
+| Create unique users for individual file containers | User "A" uploads file | File is stored and attributed to user "A" |
+| User "A" can delete their own "capsule" | Clicks delete | All data for that specific user is deleted |
+| Allow anyone to register an account | User (n) creates account and upload file(s) | All files are stored under user (n)'s name |
