@@ -50,11 +50,18 @@ h2 {
   height: 500px;
 }
 
-#carouselIndicators img {
+/* #carouselIndicators img {
   height: 500px;
-}
+} */
 
 #logout:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+
+#carouselIndicators img {
+        /* height: 100px; */
+        width: 100%;
+        object-fit: contain;
 }

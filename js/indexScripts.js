@@ -17,11 +17,7 @@ function passwordConfirm(userPassword, userPasswordConfirm, email) {
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     if (splash) {
-      if (checkforCapsule()) {
-        location.href = "unbury.html";
-      } else {
-        location.href = "capsuleCreate.html";
-      }
+      redirectCheck()
     }
   } else {
 
@@ -29,19 +25,18 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 
-function checkforCapsule() {
+function redirectCheck() {
   if (firebase.auth().currentUser) {
     var id = firebase.auth().currentUser.uid;
     var docRef = db.collection("capsules").doc(id);
     docRef.get().then(function(doc) {
       if (doc.exists) {
-        return true;
+        location.href = "unbury.html";
       } else {
-        return false;
+        location.href = "capsuleCreate.html";
       }
     });
   }
-  return false;
 }
 
 // User Interface Logic
@@ -50,12 +45,9 @@ $(document).ready(function() {
 
   $("#splashButton").click(function() {
     splash = true;
+
     if (firebase.auth().currentUser) {
-      if (checkforCapsule()) {
-        location.href = "unbury.html";
-      } else {
-        location.href = "capsuleCreate.html";
-      }
+      redirectCheck();
     } else {
       $("div.titleSplash").hide();
       $("main.loginScreen").show();
@@ -66,8 +58,17 @@ $(document).ready(function() {
     var email = $("input.user-email").val();
     var password = $("input.user-password").val();
     loginUser(email, password);
-
   })
+
+  $('input.user-password').keypress(function(event){
+      var keycode = (event.keyCode ? event.keyCode : event.which);
+      if(keycode == '13'){
+        var email = $("input.user-email").val();
+        var password = $("input.user-password").val();
+        loginUser(email, password);
+      }
+  });
+
 
   $("#newUserButton").click(function() { // Displays Site Registration Section
     $("main.loginScreen").hide();
