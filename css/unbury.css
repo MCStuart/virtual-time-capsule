@@ -50,6 +50,15 @@ h2 {
   height: 500px;
 }
 
+#deleteCapsule {
+  grid-row: 3 / 4;
+  grid-column: 2 / 4;
+}
+
+img.d-block {
+  align-self: center;
+  justify-self: center;
+}
 /* #carouselIndicators img {
   height: 500px;
 } */
