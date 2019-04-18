@@ -2,8 +2,9 @@
   border: 1px solid red;
 } */
 body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/gears.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/gears.png');
   background-size: cover;
+  height: 100%;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
