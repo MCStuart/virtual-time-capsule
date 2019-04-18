@@ -15,6 +15,10 @@ var storageRef = firebase.storage().ref();
 var fileList = [];
 var d = new Date();
 
+var filesUploaded = 0;
+var filesTotal = 0;
+var databaseUpdated = false;
+
 function Capsule(name, unbury) {
   this.name = name;
   this.unbury = unbury;
@@ -95,9 +99,15 @@ function uploadFiles() {
   //console.log($('#datetimepicker13').datetimepicker("viewDate").valueOf());
   var uid = firebase.auth().currentUser.uid;
   var capsule = new Capsule(name, date);
+  filesTotal = fileList.length;
 
   for (var i = 0, f; f = fileList[i]; i++) {
-    storageRef.child(uid + "/" + f.name).put(f);
+    storageRef.child(uid + "/" + f.name).put(f).then(function() {
+      filesUploaded++;
+      if (filesUploaded === filesTotal && databaseUpdated) {
+        location.href = "unbury.html";
+      }
+    });
     capsule.media.push(uid + "/" + f.name);
   }
 
@@ -109,14 +119,9 @@ function uploadFiles() {
     unbury: capsule.unbury,
     media: capsule.media
   }).then(function() {
-    location.href = "unbury.html";
+    databaseUpdated = true;
+    if (filesUploaded === filesTotal && databaseUpdated) {
+      location.href = "unbury.html";
+    }
   });
 }
-
-
-$(document).ready(function(){
-  $("#upload").click(function(){
-    window.location.href = "unbury.html";
-    console.log("button");
-  })
-})
