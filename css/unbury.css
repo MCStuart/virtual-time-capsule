@@ -61,7 +61,6 @@ h2 {
 
 
 #carouselIndicators img {
-        /* height: 100px; */
-        width: 100%;
+        height: 30vw;
         object-fit: contain;
 }
