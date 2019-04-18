@@ -76,3 +76,7 @@ img.d-block {
         height: 30vw;
         object-fit: contain;
 }
+
+#deleteCapsule {
+  display: none;
+}

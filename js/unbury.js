@@ -15,7 +15,7 @@ function updateBuryTime() {
     if (distance < 0) {
       clearInterval(timeCheck);
       $("#current-time").html("time capsule OPEN");
-      //$("#unbury").show();
+      $("#deleteCapsule").show();
       getMediaFromUser(addPics);
       $("#carouselIndicators").show();
     }
@@ -75,8 +75,9 @@ function addEventHandlers() {
   $('#deleteCapsule').on('click', function() {
     if (firebase.auth().currentUser) {
       var id = firebase.auth().currentUser.uid;
-      db.collection("capsules").doc(id).delete();
-      location.href = "capsuleCreate.html";
+      db.collection("capsules").doc(id).delete().then(function () {
+        location.href = "capsuleCreate.html";        
+      });
     }
   });
 
