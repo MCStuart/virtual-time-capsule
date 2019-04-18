@@ -63,12 +63,13 @@ main.registerScreen {
 .hero .btn {
   /* position and sizing */
   display: block;
-  width: 200px;
+  width: 150px;
+  height: 75px;
   /* border styles */
   border-radius: 20px;
   border: 3px solid white;
   /* padding and margins */
-  padding: 1em;
+  padding: 0.25em;
   margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
