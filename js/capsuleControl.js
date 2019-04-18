@@ -1,3 +1,5 @@
+// Virtual Time Capsule, a time-limited digital repository
+// Copyright (C) 2019  Stuart McKay, Nathan Aden, Dominic Montelongo, Elizabeth Kelley
 var firebaseConfig = {
   apiKey: "AIzaSyDNwXooTh0URLihSpXCaJKG52riq3PYwqo",
   authDomain: "time-capsule-12424.firebaseapp.com",
@@ -35,7 +37,6 @@ function updateFileList() {
       f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
       '</li>');
   }
-  //document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
 }
 
 function getFile(file) {
@@ -96,7 +97,6 @@ function logoutUser() {
 function uploadFiles() {
   var name = $('#capsule-name').val();
   var date = $('#datetimepicker13').datetimepicker("viewDate").valueOf()
-  //console.log($('#datetimepicker13').datetimepicker("viewDate").valueOf());
   var uid = firebase.auth().currentUser.uid;
   var capsule = new Capsule(name, date);
   filesTotal = fileList.length;

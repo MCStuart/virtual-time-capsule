@@ -1,3 +1,5 @@
+/* Virtual Time Capsule, a time-limited digital repository
+Copyright (C) 2019  Stuart McKay, Nathan Aden, Dominic Montelongo, Elizabeth Kelley */
 body {
   font-family: sans-serif;
   background-color: #3A6BB4;
@@ -62,9 +64,6 @@ img.d-block {
   align-self: center;
   justify-self: center;
 }
-/* #carouselIndicators img {
-  height: 500px;
-} */
 
 #logout:hover {
   text-decoration: underline;
