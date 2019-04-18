@@ -112,3 +112,11 @@ function uploadFiles() {
     location.href = "unbury.html";
   });
 }
+
+
+$(document).ready(function(){
+  $("#upload").click(function(){
+    window.location.href = "unbury.html";
+    console.log("button");
+  })
+})
