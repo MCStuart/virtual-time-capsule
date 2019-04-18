@@ -20,30 +20,32 @@
 </head>
 
 <body>
-  <small id="loginId" class="form-text text-muted"></small>
-  <small id="logout">Logout</small>
-  <h1>Time until your capsule opens</h1>
+  <div id="unbox">
+    <small id="loginId" class="form-text text-muted">Email Address</small>
+    <small class="form-text" id="logout">Logout</small>
+    <h1>Time until <span id="capsuleName"></span> opens</h1>
 
-  <div class="css-grid-wrapper">
-    <img id="capsule-pic" src="img/capsule.png" alt="time capsule countdown" style="width:100%;">
-    <h2 id="current-time"></h2>
+    <div class="css-grid-wrapper">
+      <img id="capsule-pic" src="img/capsule.png" alt="time capsule countdown" style="width:100%;">
+      <h2 id="current-time"></h2>
 
-    <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-      </ol>
-      <div class="carousel-inner">
+      <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+        </ol>
+        <div class="carousel-inner">
+        </div>
+        <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-      <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
+      <button class="btn-dark" id="deleteCapsule">Delete Capsule</button>
+      <!-- #deleteCapsule -->
     </div>
-    <button id="deleteCapsule">Delete Capsule</button>
-    <!-- #deleteCapsule -->
   </div>
 </body>
 

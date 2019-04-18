@@ -1,5 +1,4 @@
 var countdownDate = 0; // = new Date("April 17, 2019 16:00:00").getTime();
-
 var timeCheck = setInterval(updateBuryTime, 1000);
 
 function updateBuryTime() {
@@ -18,6 +17,8 @@ function updateBuryTime() {
       $("#deleteCapsule").show();
       getMediaFromUser(addPics);
       $("#carouselIndicators").show();
+    } else {
+      $("#unbox").css("display", "block")
     }
   }
 }
@@ -51,7 +52,14 @@ function getUnburyDate() {
 
   docRef.get().then(function(doc) {
     if (doc.exists) {
+      $('#capsuleName').text(doc.data().name)
       countdownDate = doc.data().unbury;
+      databaseLoaded = true;
+      if (databaseLoaded && mediaLoaded) {
+        $("#unbox").css("display", "block")
+      }
+    } else {
+      location.href = "index.html";
     }
   });
 }
@@ -76,7 +84,7 @@ function addEventHandlers() {
     if (firebase.auth().currentUser) {
       var id = firebase.auth().currentUser.uid;
       db.collection("capsules").doc(id).delete().then(function () {
-        location.href = "capsuleCreate.html";        
+        location.href = "capsuleCreate.html";
       });
     }
   });

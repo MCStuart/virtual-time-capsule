@@ -19,6 +19,9 @@ var filesUploaded = 0;
 var filesTotal = 0;
 var databaseUpdated = false;
 
+var mediaLoaded = false;
+var databaseLoaded = false;
+
 function Capsule(name, unbury) {
   this.name = name;
   this.unbury = unbury;
@@ -63,6 +66,10 @@ function getMediaFromUser(updateList) {
           media.push(url);
           if (fileList.length === media.length) {
             updateList(media);
+            mediaLoaded = true;
+            if (databaseLoaded && mediaLoaded) {
+              $("#unbox").css("display", "block")
+            }
           }
         });
       }
