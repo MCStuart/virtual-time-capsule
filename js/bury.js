@@ -9,12 +9,10 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 
-
 function addEventHandlers() {
   document.getElementById('files').addEventListener('change', handleFileSelect, false);
   $('#upload').on('click', function() {
     uploadFiles();
-    console.log($('#files'));
   });
 
   $('#login').on('click', function() {
@@ -31,7 +29,6 @@ function addEventHandlers() {
     logoutUser()
     location.href = "index.html";
   });
-
 }
 
 function handleFileSelect(evt) {
