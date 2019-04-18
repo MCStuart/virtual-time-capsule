@@ -53,3 +53,8 @@ h2 {
 #carouselIndicators img {
   height: 500px;
 }
+
+#logout:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

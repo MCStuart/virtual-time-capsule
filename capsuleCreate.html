@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- Styles -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/capsuleCreateStyles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- <script src="http://wzrd.in/standalone/uuid%2Fv4@latest"></script> -->
-    <script type="text/javascript" src="js/capsualControl.js"></script>
-    <script type="text/javascript" src="js/bury.js"></script>
-    <title>Time Capsule</title>
-  </head>
-  <body>
-    <!-- <main class="loginScreen">
+
+<head>
+  <!-- Styles -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/capsuleCreateStyles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+  <!-- <script src="http://wzrd.in/standalone/uuid%2Fv4@latest"></script> -->
+  <script type="text/javascript" src="js/capsuleControl.js"></script>
+  <script type="text/javascript" src="js/bury.js"></script>
+  <title>Time Capsule</title>
+</head>
+
+<body>
+  <!-- <main class="loginScreen">
       <h1>Please Login</h1>
       <div class="dataInput">
         <div class="form-group">
@@ -32,21 +34,23 @@
       </div>
       <button id="login" class="btn btn-success" type="button" name="button">Login</button>
     </main> -->
-    <main class="wrapper">
-      <div class="header">
-        <p id="h1">Time Capsule For</p>
-        <small id="loginId" class="form-text text-muted"></small>
-        <small id="logout">Logout</small>
-      </div>
+  <main class="wrapper">
+    <div class="header">
+      <p id="h1">Time Capsule For</p>
+      <small id="loginId" class="form-text text-muted"></small>
+      <small id="logout">Logout</small>
+    </div>
 
-      <div class="subheader">
-        <p>Change the future by honoring the past</p>
-      </div>
-      <form class="form-group userInput">
-        <div class="dataInput">
+    <div class="subheader">
+      <p>Change the future by honoring the past</p>
+    </div>
+    <form class="form-group userInput">
+      <div class="dataInput">
 
         <div class="form-group">
-          <label for="capsule-name"><h4>Name your time capsule</h4></label>
+          <label for="capsule-name">
+            <h4>Name your time capsule</h4>
+          </label>
           <input type="text" class="form-control" id="capsule-name" aria-describedby="emailHelp" placeholder="Capsule Name">
         </div>
         <!-- <div class="form-group">
@@ -59,43 +63,52 @@
           <input type="password" class="form-control" id="user-password" placeholder="Password">
         </div> -->
       </div>
-        <div style="timeInput overflow:hidden;">
-          <div class="form-group">
-            <label for="datetimepicker13"><h4>Pick a future date to open your time capsule</h4></label>
-            <div id="datetimepicker13"></div>
-          </div>
-          <script type="text/javascript">
-              $(function () {
-                $('#datetimepicker13').datetimepicker({
-                  inline: true,
-                  sideBySide: true,
-                  icons: {
-                    time: "fa fa-clock-o",
-                    date: "fa fa-calendar",
-                    up: "fa fa-arrow-up",
-                    down: "fa fa-arrow-down"
-                  }
-                });
-              });
-          </script>
+      <div style="timeInput overflow:hidden;">
+        <div class="form-group">
+          <label for="datetimepicker13">
+            <h4>Pick a future date to open your time capsule</h4>
+          </label>
+          <div id="datetimepicker13"></div>
         </div>
-        <br>
-        <button id="browse" class="btn btn-dark">Browse<input type="file" id="files" name="files[]" multiple  style="display: none;">
-        </button>
-        <br>
-        <!-- <input type="file" id="files" name="files[]" multiple /> -->
-      </form>
-      <div class="img">
-        <img src="img/treehole.png" alt="a man digging a hole next to a tree">
+        <script type="text/javascript">
+          $(function() {
+            $('#datetimepicker13').datetimepicker({
+              inline: true,
+              sideBySide: true,
+              icons: {
+                time: "fa fa-clock-o",
+                date: "fa fa-calendar",
+                up: "fa fa-arrow-up",
+                down: "fa fa-arrow-down"
+              }
+            });
+          });
+        </script>
       </div>
-      <div class="fileList">
-        <p>Files to Send to the Future:</p>
-        <output id="list"></output>
-        <button id="upload" class="btn btn-dark" type="button" name="button">Upload</button>
-      </div>
-      <div class="footer">
-        <h1>Look Ma! No Flexboxes!</h1>
-      </div>
-    </main>
-  </body>
+      <br>
+      <button id="browse" class="btn btn-dark">Browse
+        <!-- <input type="file" id="files" name="files[]" multiple style="display: none;"> -->
+        <input type="file" id="files" name="files[]" multiple>
+      </button>
+
+      <button class="btn btn-dark">22
+        <input type="file" name="files[]" multiple >
+      </button>
+      <br>
+      <!-- <input type="file" id="files" name="files[]" multiple /> -->
+    </form>
+    <div class="img">
+      <img src="img/treehole.png" alt="a man digging a hole next to a tree">
+    </div>
+    <div class="fileList">
+      <p>Files to Send to the Future:</p>
+      <output id="list"></output>
+      <button id="upload" class="btn btn-dark" type="button" name="button">Upload</button>
+    </div>
+    <div class="footer">
+      <h1>Look Ma! No Flexboxes!</h1>
+    </div>
+  </main>
+</body>
+
 </html>

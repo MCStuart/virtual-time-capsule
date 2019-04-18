@@ -27,9 +27,9 @@ function updateFileList() {
   var output = [];
   for (var i = 0, f; f = fileList[i]; i++) {
     output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
-                f.size, ' bytes, last modified: ',
-                f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
-                '</li>');
+      f.size, ' bytes, last modified: ',
+      f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+      '</li>');
   }
   document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
 }
@@ -48,23 +48,23 @@ function getMediaFromUser(updateList) {
 
 
     docRef.get().then(function(doc) {
-    if (doc.exists) {
-      fileList = doc.data().media;
+      if (doc.exists) {
+        fileList = doc.data().media;
         console.log("Document data:", doc.data());
-    } else {
+      } else {
         console.log("No such document!");
-    }
+      }
 
-    for (var i = 0, m; m = fileList[i]; i++) {
-      console.log(m);
-      getFile(m).getDownloadURL().then(function(url) {
-        media.push(url);
-        if (fileList.length === media.length) {
-          updateList(media);
-        }
-      });
-    }
-  });
+      for (var i = 0, m; m = fileList[i]; i++) {
+        console.log(m);
+        getFile(m).getDownloadURL().then(function(url) {
+          media.push(url);
+          if (fileList.length === media.length) {
+            updateList(media);
+          }
+        });
+      }
+    });
   }
 }
 

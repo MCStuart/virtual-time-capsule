@@ -12,11 +12,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 function addEventHandlers() {
   document.getElementById('files').addEventListener('change', handleFileSelect, false);
-  $('#upload').on('click', function () {
+  $('#upload').on('click', function() {
     uploadFiles();
   });
 
-  $('#login').on('click', function () {
+  $('#login').on('click', function() {
     var email = $('#user-email').val();
     var password = $('#user-password').val();
 
@@ -26,8 +26,9 @@ function addEventHandlers() {
     loginUser(email, password)
   });
 
-  $('#logout').on('click', function () {
+  $('#logout').on('click', function() {
     logoutUser()
+    location.href = "index.html";
   });
 
 }

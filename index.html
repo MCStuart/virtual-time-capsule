@@ -1,59 +1,61 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/indexStyles.css">
-    <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/capsuleControl.js"></script>
-    <script type="text/javascript" src="js/indexScripts.js"></script>
-    <title>Virtual Time Capsule</title>
-  </head>
-  <body>
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="titleSplash">
-          <h1>Virtual Time Capsule</h1>
-          <h3>Line ya Tage Inakwenda Hapa</h3>
-          <button class="btn">CLICK ME</button>
-        </div>
-        <main class="loginScreen">
-          <h1>Please Login</h1>
-          <div class="dataInput">
-            <div class="form-group">
-              <label for="user-email">Email address</label>
-              <input type="email" class="form-control user-email" aria-describedby="emailHelp" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-              <label for="user-password">Password</label>
-              <input type="password" class="form-control user-password" placeholder="Password">
-            </div>
-            <button  class="btn-small">Not a User yet? Click here to register!</button>
-          </div>
-          <button id="login" class="btn" type="button" name="button">Login</button>
-        </main>
-        <main class="registerScreen">
-          <h1>Register</h1>
-          <div class="dataInput">
-            <div class="form-group">
-              <label for="user-email">Email address</label>
-              <input type="email" class="form-control" id="user-email" aria-describedby="emailHelp" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-              <label for="user-password">Password</label>
-              <input type="password" class="form-control" id="user-password" placeholder="Password">
-            </div>
-            <div class="form-group">
-              <label for="user-password">Confirm Password</label>
-              <input type="password" class="form-control" id="user-password-confirm" placeholder="Confirm Password">
-            </div>
-          </div>
-          <button id="registerNewUser" class="btn btn-success" type="button" name="button">Register</button>
-        </main>
+
+<head>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/indexStyles.css">
+  <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/capsuleControl.js"></script>
+  <script type="text/javascript" src="js/indexScripts.js"></script>
+  <title>Virtual Time Capsule</title>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="titleSplash">
+        <h1>Virtual Time Capsule</h1>
+        <h3>Line ya Tage Inakwenda Hapa</h3>
+        <button id="splashButton" class="btn">CLICK ME</button>
       </div>
-    </section>
-  </body>
+      <main class="loginScreen">
+        <h1>Please Login</h1>
+        <div class="dataInput">
+          <div class="form-group">
+            <label for="user-email">Email address</label>
+            <input type="email" class="form-control user-email" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="user-password">Password</label>
+            <input type="password" class="form-control user-password" placeholder="Password">
+          </div>
+          <button id="newUserButton" class="btn-small">Not a User yet? Click here to register!</button>
+        </div>
+        <button id="login" class="btn" type="button" name="button">Login</button>
+      </main>
+      <main class="registerScreen">
+        <h1>Register</h1>
+        <div class="dataInput">
+          <div class="form-group">
+            <label for="user-email">Email address</label>
+            <input type="email" class="form-control" id="user-email" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="user-password">Password</label>
+            <input type="password" class="form-control" id="user-password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="user-password">Confirm Password</label>
+            <input type="password" class="form-control" id="user-password-confirm" placeholder="Confirm Password">
+          </div>
+        </div>
+        <button id="registerNewUser" class="btn btn-success" type="button" name="button">Register</button>
+      </main>    
+    </div>
+  </section>
+</body>
+
 </html>

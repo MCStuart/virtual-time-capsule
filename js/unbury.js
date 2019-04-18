@@ -28,11 +28,17 @@ function getDateFromMS(time) {
   var hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((time % (1000 * 60)) / 1000);
-  return {days: days, hours: hours, minutes: minutes, seconds: seconds}
+  return {
+    days: days,
+    hours: hours,
+    minutes: minutes,
+    seconds: seconds
+  }
 }
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+    $("#loginId").text(user.email)
     getUnburyDate()
     updateBuryTime()
   } else {
@@ -67,13 +73,20 @@ function addPics(media) {
 
 function addEventHandlers() {
 
-  $('#unbury').on('click', function () {
+  $('#unbury').on('click', function() {
     //getMediaFromUser(addPics);
   });
 
+  $('#logout').on('click', function() {
+    logoutUser()
+    location.href = "index.html";
+  });
 }
 
 $(function() {
   addEventHandlers()
   updateBuryTime()
+  // if (firebase.auth().currentUser) {
+  //   $("#loginId").text(user.email)
+  // }
 });
