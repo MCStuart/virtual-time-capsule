@@ -2,7 +2,7 @@
   border: 1px solid red;
 } */
 body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/gears.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/gears.jpg');
   background-size: cover;
   height: 100%;
   background-position: center center;
@@ -66,13 +66,9 @@ body {
 
 #upload {
   display: flex;
-  background-color: goldenrod;
+  background-color: #E6D21F;
   margin-left: auto;
   margin-right: auto;
-}
-
-#browse {
-  background-color: purple;
 }
 
 .dataInput {
@@ -83,16 +79,18 @@ body {
 
 img {
   height: auto;
-  /* width: 100%; */
   max-width: 600px;
   max-height: 400px;
   min-width: 250px;
-  background-color: rgb(160, 157, 133, 0.9);
 }
 
 .img {
+  background-color: rgb(160, 157, 133, 0.9);
+  margin-left: auto;
+  margin-right: auto;
   grid-row: 2 / 3;
   grid-column: 3 / 4;
+  padding: 10px
 }
 
 .fileList {
@@ -138,4 +136,8 @@ small {
   align-self: center;
   margin: 0;
   justify-content: center;
+}
+
+.filepond--drop-label {
+  border-radius: 5px;
 }
