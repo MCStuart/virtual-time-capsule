@@ -115,3 +115,11 @@ function uploadFiles() {
     media: capsule.media
   });
 }
+
+
+$(document).ready(function(){
+  $("#upload").click(function(){
+    window.location.href = "unbury.html";
+    console.log("button");
+  })
+})
