@@ -31,9 +31,8 @@ function updateFileList() {
       f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
       '</li>');
   }
-  document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+  //document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
 }
-
 
 function getFile(file) {
   return pathReference = storage.ref(file);
@@ -45,7 +44,6 @@ function getMediaFromUser(updateList) {
     var docRef = db.collection("capsules").doc(id);
     var media = [];
     var fileList = [];
-
 
     docRef.get().then(function(doc) {
       if (doc.exists) {
@@ -67,8 +65,6 @@ function getMediaFromUser(updateList) {
     });
   }
 }
-
-
 
 function createUser(email, password) {
   firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
@@ -107,11 +103,12 @@ function uploadFiles() {
 
   var timeBuried = new Date().getTime();
 
-
   db.collection("capsules").doc(uid).set({
     name: capsule.name,
     timeBuried: timeBuried,
     unbury: capsule.unbury,
     media: capsule.media
+  }).then(function() {
+    location.href = "unbury.html";
   });
 }

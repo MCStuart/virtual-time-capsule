@@ -11,7 +11,6 @@ function updateBuryTime() {
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    console.log(distance);
     $("#current-time").html(days + "d " + hours + "h " + minutes + "m " + seconds + "s ");
     if (distance < 0) {
       clearInterval(timeCheck);
@@ -73,14 +72,20 @@ function addPics(media) {
 
 function addEventHandlers() {
 
-  $('#unbury').on('click', function() {
-    //getMediaFromUser(addPics);
+  $('#deleteCapsule').on('click', function() {
+    if (firebase.auth().currentUser()) {
+      var id = firebase.auth().currentUser.uid;
+      db.collection("capsules").doc(id).delete();
+      location.href = "capsuleCreate.html";
+    }
   });
 
   $('#logout').on('click', function() {
     logoutUser()
     location.href = "index.html";
   });
+
+db.collection("cities").doc("DC").delete()
 }
 
 $(function() {
