@@ -73,7 +73,7 @@ function addPics(media) {
 function addEventHandlers() {
 
   $('#deleteCapsule').on('click', function() {
-    if (firebase.auth().currentUser()) {
+    if (firebase.auth().currentUser) {
       var id = firebase.auth().currentUser.uid;
       db.collection("capsules").doc(id).delete();
       location.href = "capsuleCreate.html";
