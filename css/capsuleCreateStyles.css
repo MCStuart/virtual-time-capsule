@@ -15,7 +15,7 @@ body {
   /* display: grid; */
   grid-template-columns: 1fr 10fr 10fr 1fr;
   /* grid-template-columns: repeat(auto-fit, 1fr); */
-  grid-template-rows: 200px 2fr 1fr 150px;
+  grid-template-rows: 200px 400px 400px 150px;
   grid-gap: 1rem;
   align-items: center;
 }
@@ -68,6 +68,7 @@ body {
   background-color: #E6D21F;
   margin-left: auto;
   margin-right: auto;
+  color: white;
 }
 
 .dataInput {
@@ -93,7 +94,7 @@ img {
 }
 
 .fileList {
-  grid-row: 3 / 4;
+  grid-row: 3;
   grid-column: 3 / 4;
   align-self: start;
 }
@@ -106,6 +107,10 @@ img {
 
 small {
   font-size: 18px;
+}
+
+#loginId {
+  color: #D99125;
 }
 
 #logout:hover {
@@ -137,4 +142,28 @@ small {
 
 .filepond--drop-label {
   border-radius: 5px;
+}
+
+.datepicker table tr td.active:active,
+.datepicker table tr td.active:hover:active,
+.datepicker table tr td.active.disabled:active,
+.datepicker table tr td.active.disabled:hover:active,
+.datepicker table tr td.active.active,
+.datepicker table tr td.active:hover.active,
+.datepicker table tr td.active.disabled.active,
+.datepicker table tr td.active.disabled:hover.active,
+.timepicker table tr td.active:active,
+.timepicker table tr td.active:hover:active,
+.timepicker table tr td.active.disabled:active,
+.timepicker table tr td.active.disabled:hover:active,
+.timepicker table tr td.active.active,
+.timepicker table tr td.active:hover.active,
+.timepicker table tr td.active.disabled.active,
+.timepicker table tr td.active.disabled:hover.active,
+.btn-primary, #upload {
+  background-image: linear-gradient(to bottom, #D99125, #E6D21F);
+}
+
+.btn-primary, #upload {
+  border-width: 0px;
 }

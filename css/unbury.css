@@ -4,12 +4,26 @@ body {
   font-family: sans-serif;
   background-color: #3A6BB4;
   background-image: linear-gradient(to bottom, #07CCEF, #1D6DE5);
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: white;
   background-size: cover;
-  background-blend-mode:
+}
+
+#loginId, #logout {
+  text-align: right;
+  margin-right: 50px;
+}
+
+#unbox {
+  display: none;
 }
 
 h1 {
+  grid-row: 1 / 2;
+  grid-column: 2 / 4;
   color: #26409B;
   text-align: center;
 }
@@ -25,21 +39,21 @@ h2 {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 2fr 2fr 1fr;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 10% 40% 58% 35px;
   grid-gap: 1em;
 }
 
 #capsule-pic {
   grid-column: 2 / 4;
-  grid-row: 1 / 2;
-  margin-left: auto;
-  margin-right: auto;
+  grid-row: 2 / 3;
+  /* margin-left: auto;
+  margin-right: auto; */
   align-self: center;
 }
 
 #current-time {
   grid-column: 3 / 4;
-  grid-row: 1 / 2;
+  grid-row: 2 / 3;
   font-size: 4vmin;
   margin-left: 3vw;
   margin-right: 1vw;
@@ -48,17 +62,12 @@ h2 {
 
 #carouselIndicators {
   grid-column: 2 / 4;
-  grid-row: 2 / 4;
+  grid-row: 3 / 4;
   display: none;
   margin-left: auto;
   margin-right: auto;
-  height: 500px;
 }
 
-#deleteCapsule {
-  grid-row: 3 / 4;
-  grid-column: 2 / 4;
-}
 
 img.d-block {
   align-self: center;
@@ -70,8 +79,20 @@ img.d-block {
   cursor: pointer;
 }
 
-
 #carouselIndicators img {
         height: 30vw;
         object-fit: contain;
+}
+
+#deleteCapsule {
+  grid-row: 4 / 5;
+  grid-column: 2 / 4;
+  /* display: none; */
+  width: 120px;
+  font-size: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: linear-gradient(to bottom, #07CCEF, #1D6DE5);
+  border-width: 0px;
+  border-radius: 5px;
 }

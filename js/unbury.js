@@ -1,7 +1,6 @@
 // Virtual Time Capsule, a time-limited digital repository
 // Copyright (C) 2019  Stuart McKay, Nathan Aden, Dominic Montelongo, Elizabeth Kelley
 var countdownDate = 0; // = new Date("April 17, 2019 16:00:00").getTime();
-
 var timeCheck = setInterval(updateBuryTime, 1000);
 
 function updateBuryTime() {
@@ -17,8 +16,11 @@ function updateBuryTime() {
     if (distance < 0) {
       clearInterval(timeCheck);
       $("#current-time").html("time capsule OPEN");
+      $("#deleteCapsule").show();
       getMediaFromUser(addPics);
       $("#carouselIndicators").show();
+    } else {
+      $("#unbox").css("display", "block")
     }
   }
 }
@@ -52,7 +54,14 @@ function getUnburyDate() {
 
   docRef.get().then(function(doc) {
     if (doc.exists) {
+      $('#capsuleName').text(doc.data().name)
       countdownDate = doc.data().unbury;
+      databaseLoaded = true;
+      if (databaseLoaded && mediaLoaded) {
+        $("#unbox").css("display", "block")
+      }
+    } else {
+      location.href = "index.html";
     }
   });
 }
@@ -76,8 +85,9 @@ function addEventHandlers() {
   $('#deleteCapsule').on('click', function() {
     if (firebase.auth().currentUser) {
       var id = firebase.auth().currentUser.uid;
-      db.collection("capsules").doc(id).delete();
-      location.href = "capsuleCreate.html";
+      db.collection("capsules").doc(id).delete().then(function () {
+        location.href = "capsuleCreate.html";
+      });
     }
   });
 
