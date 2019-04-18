@@ -39,6 +39,27 @@ main.registerScreen {
   margin-bottom: 0.5em;
 }
 
+#splashButton {
+  /* position and sizing */
+  display: block;
+  width: 150px;
+  height: 75px;
+  /* border styles */
+  border-radius: 20px;
+  border: 3px solid white;
+  /* padding and margins */
+  padding: .25em;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  /* text styles */
+  color: white;
+  text-decoration: none;
+  font-size: 2em;
+  /* background color fill */
+  background-color: black;
+}
+
 .hero .btn {
   /* position and sizing */
   display: block;
@@ -54,7 +75,7 @@ main.registerScreen {
   /* text styles */
   color: white;
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 2em;
   /* background color fill */
   background-color: black;
 }

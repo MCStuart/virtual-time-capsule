@@ -1,7 +1,10 @@
 body {
   font-family: sans-serif;
-  background-color: #A1CCF1;
+  background-color: #3A6BB4;
+  background-image: linear-gradient(to bottom, #07CCEF, #1D6DE5);
   color: white;
+  background-size: cover;
+  background-blend-mode:
 }
 
 h1 {
