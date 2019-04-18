@@ -1,3 +1,5 @@
+// Virtual Time Capsule, a time-limited digital repository
+// Copyright (C) 2019  Stuart McKay, Nathan Aden, Dominic Montelongo, Elizabeth Kelley
 // Business Logic
 var splash = false;
 
@@ -76,7 +78,6 @@ $(document).ready(function() {
   });
 
   $("#registerNewUser").click(function() { // Registers and Logs in new User
-    // $("main.registerScreen").hide();
     $("main.loginScreen").hide();
     var userPassword = $("#user-password").val();
     var userPasswordConfirm = $("#user-password-confirm").val();

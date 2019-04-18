@@ -1,3 +1,5 @@
+<!-- Virtual Time Capsule, a time-limited digital repository
+Copyright (C) 2019  Stuart McKay, Nathan Aden, Dominic Montelongo, Elizabeth Kelley -->
 <!DOCTYPE html>
 <html>
 
@@ -15,7 +17,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
-  <!-- <script src="http://wzrd.in/standalone/uuid%2Fv4@latest"></script> -->
   <script type="text/javascript" src="js/capsuleControl.js"></script>
 
   <script type="text/javascript" src="js/bury.js"></script>
@@ -23,20 +24,6 @@
 </head>
 
 <body>
-  <!-- <main class="loginScreen">
-      <h1>Please Login</h1>
-      <div class="dataInput">
-        <div class="form-group">
-          <label for="user-email">Email address</label>
-          <input type="email" class="form-control" id="user-email" aria-describedby="emailHelp" placeholder="Enter email">
-        </div>
-        <div class="form-group">
-          <label for="user-password">Password</label>
-          <input type="password" class="form-control" id="user-password" placeholder="Password">
-        </div>
-      </div>
-      <button id="login" class="btn btn-success" type="button" name="button">Login</button>
-    </main> -->
   <main class="wrapper">
     <div class="header">
       <p id="h1">Time Capsule For</p>
@@ -56,15 +43,6 @@
           </label>
           <input type="text" class="form-control" id="capsule-name" aria-describedby="emailHelp" placeholder="Capsule Name">
         </div>
-        <!-- <div class="form-group">
-          <label for="user-email">Email address</label>
-          <input type="email" class="form-control" id="user-email" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">This is needed to recover your time capsule</small>
-        </div>
-        <div class="form-group">
-          <label for="user-password">Password</label>
-          <input type="password" class="form-control" id="user-password" placeholder="Password">
-        </div> -->
       </div>
       <div style="timeInput overflow:hidden;">
         <div class="form-group">
@@ -89,14 +67,6 @@
         </script>
       </div>
       <br>
-      <!-- <button id="browse" class="btn btn-dark">Browse
-        <input type="file" id="files" name="files[]" multiple style="display: none;">
-        <input type="file" id="files" name="files[]" multiple>
-      </button> -->
-
-
-      <br>
-      <!-- <input type="file" id="files" name="files[]" multiple /> -->
     </form>
     <div class="img">
       <img src="img/treehole.png" alt="a man digging a hole next to a tree">
@@ -104,7 +74,6 @@
     <div class="fileList">
       <p>Files to Send to the Future:</p>
       <input id="files" type="file" class="filepond" multiple>
-      <!-- <output id="list"></output> -->
       <button id="upload" class="btn btn-light" type="button" name="button">Upload</button>
     </div>
     <div class="footer">

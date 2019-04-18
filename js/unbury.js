@@ -1,3 +1,5 @@
+// Virtual Time Capsule, a time-limited digital repository
+// Copyright (C) 2019  Stuart McKay, Nathan Aden, Dominic Montelongo, Elizabeth Kelley
 var countdownDate = 0; // = new Date("April 17, 2019 16:00:00").getTime();
 var timeCheck = setInterval(updateBuryTime, 1000);
 
@@ -100,7 +102,4 @@ db.collection("cities").doc("DC").delete()
 $(function() {
   addEventHandlers()
   updateBuryTime()
-  // if (firebase.auth().currentUser) {
-  //   $("#loginId").text(user.email)
-  // }
 });

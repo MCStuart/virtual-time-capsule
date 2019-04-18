@@ -1,3 +1,5 @@
+// Virtual Time Capsule, a time-limited digital repository
+// Copyright (C) 2019  Stuart McKay, Nathan Aden, Dominic Montelongo, Elizabeth Kelley
 //Login / Logout
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
